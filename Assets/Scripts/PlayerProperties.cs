@@ -25,6 +25,12 @@ public class PlayerProperties : MonoBehaviour
         timer += Time.deltaTime;
 
         TimerUI.GetComponent<Text>().text = "Timer : " + timer.ToString("F2") + " ( 20 seconds )";
+
+        if(timer >= 20)
+        {
+            SceneManager.LoadScene("GameLoseScene");
+            UnityStandardAssets.Characters.FirstPerson.MouseLook.m_cursorIsLocked = false;
+        }
     }
 
     private void OnCollisionStay(Collision other)
