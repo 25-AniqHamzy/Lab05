@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerProperties : MonoBehaviour
 {
-    public GameObject collectedUI,TimerUI;
+    public GameObject collectedUI,TimerUI, effects;
 
     int coins;
     float timer;
@@ -39,6 +39,7 @@ public class PlayerProperties : MonoBehaviour
         {
             coins += 10;
             Destroy(other.gameObject);
+            GameObject effect = Instantiate(effects, transform.position, transform.rotation);
             collectedUI.GetComponent<Text>().text = "Coin Collected : " + coins; 
 
             if(coins >= 60)
