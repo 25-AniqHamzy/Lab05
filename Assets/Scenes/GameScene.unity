@@ -3246,7 +3246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collectedUI: {fileID: 1509284349}
   TimerUI: {fileID: 52563331}
-  effects: {fileID: 7939803258321345752, guid: 16573987af3081043978cb9f865a36b8, type: 3}
+  effects: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
 --- !u!1 &1751836063
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,12 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class Scenes : MonoBehaviour
 {
-    public void Update()
+
+    void Start()
     {
         Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
     public void OnRetry()
     {
         SceneManager.LoadScene("GameScene");
+        //UnityStandardAssets.Characters.FirstPerson.MouseLook.m_cursorIsLocked = true;
     }
 }

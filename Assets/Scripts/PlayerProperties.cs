@@ -15,21 +15,19 @@ public class PlayerProperties : MonoBehaviour
     void Start()
     {
         coins = 0;
-        timer = 0;
-    
+        timer = 20;
     }
 
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
+        timer -= Time.deltaTime;
 
-        TimerUI.GetComponent<Text>().text = "Timer : " + timer.ToString("F2") + " ( 20 seconds )";
+        TimerUI.GetComponent<Text>().text = "Timer : " + timer.ToString("F2");
 
-        if(timer >= 20)
+        if(timer <= 0)
         {
-            SceneManager.LoadScene("GameLoseScene");
-            UnityStandardAssets.Characters.FirstPerson.MouseLook.m_cursorIsLocked = false;
+            MouseUnlock();
         }
     }
 
@@ -45,7 +43,7 @@ public class PlayerProperties : MonoBehaviour
             if(coins >= 60)
             {
                 SceneManager.LoadScene("GameWinScene");
-                UnityStandardAssets.Characters.FirstPerson.MouseLook.m_cursorIsLocked = false;
+                MouseUnlock();
             }
         }
     }
@@ -55,7 +53,16 @@ public class PlayerProperties : MonoBehaviour
         if (other.gameObject.tag == "Water")
         {
             SceneManager.LoadScene("GameLoseScene");
-            UnityStandardAssets.Characters.FirstPerson.MouseLook.m_cursorIsLocked = false;
+            MouseUnlock();
+        }
+    }
+
+    private void MouseUnlock()
+    {
+        UnityStandardAssets.Characters.FirstPerson.MouseLook.m_cursorIsLocked = false;
+        if(timer <= 0)
+        {
+            SceneManager.LoadScene("GameLoseScene");
         }
     }
 }
