@@ -38,6 +38,7 @@ public class PlayerProperties : MonoBehaviour
             if(coins >= 60)
             {
                 SceneManager.LoadScene("GameWinScene");
+                UnityStandardAssets.Characters.FirstPerson.MouseLook.m_cursorIsLocked = false;
             }
         }
     }
@@ -47,6 +48,7 @@ public class PlayerProperties : MonoBehaviour
         if (other.gameObject.tag == "Water")
         {
             SceneManager.LoadScene("GameLoseScene");
+            UnityStandardAssets.Characters.FirstPerson.MouseLook.m_cursorIsLocked = false;
         }
     }
 }
